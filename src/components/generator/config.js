@@ -1,148 +1,205 @@
-export let formConf = {
+// 表单属性【右面板】
+export const formConf = {
   formRef: 'elForm',
   formModel: 'formData',
   size: 'medium',
   labelPosition: 'right',
   labelWidth: 100,
-  formRules: "rules",
+  formRules: 'rules',
   gutter: 15,
   disabled: false,
-  span: 24
+  span: 24,
+  formBtns: true
 }
 
-export let inputComponents = [
+// 输入型组件 【左面板】
+export const inputComponents = [
   {
-    label: "单行文本",
-    tag: "el-input",
-    tagIcon: 'input',
-    placeholder: "请输入",
-    defaultValue: undefined,
-    span: 24,
-    labelWidth: null,
-    style: { width: "100%" },
+    // 组件的自定义配置
+    __config__: {
+      label: '单行文本',
+      labelWidth: null,
+      showLabel: true,
+      changeTag: true,
+      tag: 'el-input',
+      tagIcon: 'input',
+      defaultValue: undefined,
+      required: true,
+      layout: 'colFormItem',
+      span: 24,
+      document: 'https://element.eleme.cn/#/zh-CN/component/input',
+      // 正则校验规则
+      regList: []
+    },
+    // 组件的插槽属性
+    __slot__: {
+      prepend: '',
+      append: ''
+    },
+    // 其余的为可直接写在组件标签上的属性
+    placeholder: '请输入',
+    style: { width: '100%' },
     clearable: true,
-    prepend: "",
-    append: "",
     'prefix-icon': '',
     'suffix-icon': '',
     maxlength: null,
-    "show-word-limit": false,
+    'show-word-limit': false,
     readonly: false,
-    disabled: false,
-    required: true,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/input'
+    disabled: false
   },
   {
-    label: "多行文本",
-    tag: "el-input",
-    tagIcon: 'textarea',
-    type: "textarea",
-    placeholder: "请输入",
-    defaultValue: undefined,
-    span: 24,
-    labelWidth: null,
+    __config__: {
+      label: '多行文本',
+      labelWidth: null,
+      showLabel: true,
+      tag: 'el-input',
+      tagIcon: 'textarea',
+      defaultValue: undefined,
+      required: true,
+      layout: 'colFormItem',
+      span: 24,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/input'
+    },
+    type: 'textarea',
+    placeholder: '请输入',
     autosize: {
       minRows: 4,
-      maxRows: 4,
+      maxRows: 4
     },
-    style: { width: "100%" },
+    style: { width: '100%' },
     maxlength: null,
-    "show-word-limit": false,
+    'show-word-limit': false,
     readonly: false,
-    disabled: false,
-    required: true,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/input'
+    disabled: false
   },
   {
-    label: "密码",
-    tag: "el-input",
-    tagIcon: 'password',
-    placeholder: "请输入",
-    defaultValue: undefined,
-    span: 24,
+    __config__: {
+      label: '密码',
+      showLabel: true,
+      labelWidth: null,
+      changeTag: true,
+      tag: 'el-input',
+      tagIcon: 'password',
+      defaultValue: undefined,
+      layout: 'colFormItem',
+      span: 24,
+      required: true,
+      regList: [],
+      document: 'https://element.eleme.cn/#/zh-CN/component/input'
+    },
+    __slot__: {
+      prepend: '',
+      append: ''
+    },
+    placeholder: '请输入',
     'show-password': true,
-    labelWidth: null,
-    style: { width: "100%" },
+    style: { width: '100%' },
     clearable: true,
-    prepend: "",
-    append: "",
     'prefix-icon': '',
     'suffix-icon': '',
     maxlength: null,
-    "show-word-limit": false,
+    'show-word-limit': false,
     readonly: false,
-    disabled: false,
-    required: true,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/input'
+    disabled: false
   },
   {
-    label: "计数器",
-    tag: "el-input-number",
-    tagIcon: 'number',
-    placeholder: "",
-    defaultValue: undefined,
-    span: 24,
-    labelWidth: null,
+    __config__: {
+      label: '计数器',
+      showLabel: true,
+      changeTag: true,
+      labelWidth: null,
+      tag: 'el-input-number',
+      tagIcon: 'number',
+      defaultValue: undefined,
+      span: 24,
+      layout: 'colFormItem',
+      required: true,
+      regList: [],
+      document: 'https://element.eleme.cn/#/zh-CN/component/input-number'
+    },
+    placeholder: '',
     min: undefined,
     max: undefined,
-    step: undefined,
+    step: 1,
     'step-strictly': false,
     precision: undefined,
     'controls-position': '',
-    disabled: false,
-    required: true,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/input-number'
+    disabled: false
   },
+  {
+    __config__: {
+      label: '编辑器',
+      showLabel: true,
+      changeTag: true,
+      labelWidth: null,
+      tag: 'tinymce',
+      tagIcon: 'rich-text',
+      defaultValue: null,
+      span: 24,
+      layout: 'colFormItem',
+      required: true,
+      regList: [],
+      document: 'http://tinymce.ax-z.cn'
+    },
+    placeholder: '请输入',
+    height: 300, // 编辑器高度
+    branding: false // 隐藏右下角品牌烙印
+  }
 ]
 
-export let selectComponents = [
+// 选择型组件 【左面板】
+export const selectComponents = [
   {
-    label: "下拉选择",
-    tag: "el-select",
-    tagIcon: 'select',
-    placeholder: "请选择",
-    defaultValue: undefined,
-    span: 24,
-    labelWidth: null,
-    style: { width: "100%" },
+    __config__: {
+      label: '下拉选择',
+      showLabel: true,
+      labelWidth: null,
+      tag: 'el-select',
+      tagIcon: 'select',
+      layout: 'colFormItem',
+      span: 24,
+      required: true,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/select'
+    },
+    __slot__: {
+      options: [{
+        label: '选项一',
+        value: 1
+      }, {
+        label: '选项二',
+        value: 2
+      }]
+    },
+    placeholder: '请选择',
+    style: { width: '100%' },
     clearable: true,
     disabled: false,
-    required: true,
     filterable: false,
-    multiple: false,
-    options: [{
-      label: '选项一',
-      value: 1
-    }, {
-      label: '选项二',
-      value: 2
-    }],
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/select'
+    multiple: false
   },
   {
-    label: "级联选择",
-    tag: "el-cascader",
-    tagIcon: 'cascader',
-    placeholder: "请选择",
-    defaultValue: [],
-    span: 24,
-    labelWidth: null,
-    style: {width: '100%'},
-    props: {
-      props: {
-        multiple: false
-      }
+    __config__: {
+      label: '级联选择',
+      url: 'https://www.fastmock.site/mock/f8d7a54fb1e60561e2f720d5a810009d/fg/cascaderList',
+      method: 'get',
+      dataKey: 'list',
+      showLabel: true,
+      labelWidth: null,
+      tag: 'el-cascader',
+      tagIcon: 'cascader',
+      layout: 'colFormItem',
+      defaultValue: [],
+      dataType: 'dynamic',
+      span: 24,
+      required: true,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/cascader'
     },
-    'show-all-levels': true,
-    disabled: false,
-    clearable: true,
-    filterable: false,
-    required: true,
     options: [{
       id: 1,
       value: 1,
@@ -153,237 +210,339 @@ export let selectComponents = [
         label: '选项1-1'
       }]
     }],
-    dataType: 'dynamic',
-    labelKey: 'label',
-    valueKey: 'value',
-    childrenKey: 'children',
-    separator: '/',
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/cascader'
+    placeholder: '请选择',
+    style: { width: '100%' },
+    props: {
+      props: {
+        multiple: false,
+        label: 'label',
+        value: 'value',
+        children: 'children'
+      }
+    },
+    'show-all-levels': true,
+    disabled: false,
+    clearable: true,
+    filterable: false,
+    separator: '/'
   },
   {
-    label: "单选框组",
-    tag: "el-radio-group",
-    tagIcon: 'radio',
-    defaultValue: undefined,
-    span: 24,
-    labelWidth: null,
+    __config__: {
+      label: '单选框组',
+      labelWidth: null,
+      showLabel: true,
+      tag: 'el-radio-group',
+      tagIcon: 'radio',
+      changeTag: true,
+      defaultValue: undefined,
+      layout: 'colFormItem',
+      span: 24,
+      optionType: 'default',
+      regList: [],
+      required: true,
+      border: false,
+      document: 'https://element.eleme.cn/#/zh-CN/component/radio'
+    },
+    __slot__: {
+      options: [{
+        label: '选项一',
+        value: 1
+      }, {
+        label: '选项二',
+        value: 2
+      }]
+    },
     style: {},
-    optionType: "default",
-    border: false,
     size: 'medium',
-    disabled: false,
-    required: true,
-    options: [{
-      label: '选项一',
-      value: 1
-    }, {
-      label: '选项二',
-      value: 2
-    }],
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/radio'
+    disabled: false
   },
   {
-    label: "多选框组",
-    tag: "el-checkbox-group",
-    tagIcon: 'checkbox',
-    defaultValue: [],
-    span: 24,
-    labelWidth: null,
+    __config__: {
+      label: '多选框组',
+      tag: 'el-checkbox-group',
+      tagIcon: 'checkbox',
+      defaultValue: [],
+      span: 24,
+      showLabel: true,
+      labelWidth: null,
+      layout: 'colFormItem',
+      optionType: 'default',
+      required: true,
+      regList: [],
+      changeTag: true,
+      border: false,
+      document: 'https://element.eleme.cn/#/zh-CN/component/checkbox'
+    },
+    __slot__: {
+      options: [{
+        label: '选项一',
+        value: 1
+      }, {
+        label: '选项二',
+        value: 2
+      }]
+    },
     style: {},
-    optionType: "default",
-    border: false,
     size: 'medium',
-    disabled: false,
-    required: true,
-    options: [{
-      label: '选项一',
-      value: 1
-    }, {
-      label: '选项二',
-      value: 2
-    }],
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/checkbox'
+    min: null,
+    max: null,
+    disabled: false
   },
   {
-    label: "开关",
-    tag: "el-switch",
-    tagIcon: 'switch',
-    defaultValue: false,
-    span: 24,
-    labelWidth: null,
+    __config__: {
+      label: '开关',
+      tag: 'el-switch',
+      tagIcon: 'switch',
+      defaultValue: false,
+      span: 24,
+      showLabel: true,
+      labelWidth: null,
+      layout: 'colFormItem',
+      required: true,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/switch'
+    },
     style: {},
     disabled: false,
-    required: true,
     'active-text': '',
     'inactive-text': '',
     'active-color': null,
     'inactive-color': null,
     'active-value': true,
-    'inactive-value': false,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/switch'
+    'inactive-value': false
   },
   {
-    label: "滑块",
-    tag: "el-slider",
-    tagIcon: 'slider',
-    defaultValue: null,
-    span: 24,
-    labelWidth: null,
+    __config__: {
+      label: '滑块',
+      tag: 'el-slider',
+      tagIcon: 'slider',
+      defaultValue: null,
+      span: 24,
+      showLabel: true,
+      layout: 'colFormItem',
+      labelWidth: null,
+      required: true,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/slider'
+    },
     disabled: false,
-    required: true,
     min: 0,
     max: 100,
     step: 1,
     'show-stops': false,
-    range: false,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/slider'
+    range: false
   },
   {
-    label: "时间选择",
-    tag: "el-time-picker",
-    tagIcon: 'time',
-    placeholder: "请选择",
-    defaultValue: null,
-    span: 24,
-    labelWidth: null,
-    style: {width: '100%'},
+    __config__: {
+      label: '时间选择',
+      tag: 'el-time-picker',
+      tagIcon: 'time',
+      defaultValue: null,
+      span: 24,
+      showLabel: true,
+      layout: 'colFormItem',
+      labelWidth: null,
+      required: true,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/time-picker'
+    },
+    placeholder: '请选择',
+    style: { width: '100%' },
     disabled: false,
     clearable: true,
-    required: true,
     'picker-options': {
       selectableRange: '00:00:00-23:59:59'
     },
-    format: "HH:mm:ss",
-    'value-format': "HH:mm:ss",
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/time-picker'
+    format: 'HH:mm:ss',
+    'value-format': 'HH:mm:ss'
   },
   {
-    label: "时间范围",
-    tag: "el-time-picker",
-    tagIcon: 'time',
-    defaultValue: null,
-    span: 24,
-    labelWidth: null,
-    style: {width: '100%'},
+    __config__: {
+      label: '时间范围',
+      tag: 'el-time-picker',
+      tagIcon: 'time-range',
+      span: 24,
+      showLabel: true,
+      labelWidth: null,
+      layout: 'colFormItem',
+      defaultValue: null,
+      required: true,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/time-picker'
+    },
+    style: { width: '100%' },
     disabled: false,
     clearable: true,
-    required: true,
     'is-range': true,
     'range-separator': '至',
     'start-placeholder': '开始时间',
     'end-placeholder': '结束时间',
-    format: "HH:mm:ss",
-    'value-format': "HH:mm:ss",
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/time-picker'
+    format: 'HH:mm:ss',
+    'value-format': 'HH:mm:ss'
   },
   {
-    label: "日期选择",
-    tag: "el-date-picker",
-    tagIcon: 'date',
-    placeholder: "请选择",
-    defaultValue: null,
+    __config__: {
+      label: '日期选择',
+      tag: 'el-date-picker',
+      tagIcon: 'date',
+      defaultValue: null,
+      showLabel: true,
+      labelWidth: null,
+      span: 24,
+      layout: 'colFormItem',
+      required: true,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/date-picker'
+    },
+    placeholder: '请选择',
     type: 'date',
-    span: 24,
-    labelWidth: null,
-    style: {width: '100%'},
+    style: { width: '100%' },
     disabled: false,
     clearable: true,
-    required: true,
-    format: "yyyy-MM-dd",
-    'value-format': "yyyy-MM-dd",
-    readonly: false,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/date-picker'
+    format: 'yyyy-MM-dd',
+    'value-format': 'yyyy-MM-dd',
+    readonly: false
   },
   {
-    label: "日期范围",
-    tag: "el-date-picker",
-    tagIcon: 'date',
-    defaultValue: null,
-    span: 24,
-    labelWidth: null,
-    style: {width: '100%'},
-    type: "daterange",
+    __config__: {
+      label: '日期范围',
+      tag: 'el-date-picker',
+      tagIcon: 'date-range',
+      defaultValue: null,
+      span: 24,
+      showLabel: true,
+      labelWidth: null,
+      required: true,
+      layout: 'colFormItem',
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/date-picker'
+    },
+    style: { width: '100%' },
+    type: 'daterange',
     'range-separator': '至',
     'start-placeholder': '开始日期',
     'end-placeholder': '结束日期',
     disabled: false,
     clearable: true,
-    required: true,
-    format: "yyyy-MM-dd",
-    'value-format': "yyyy-MM-dd",
-    readonly: false,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/date-picker'
+    format: 'yyyy-MM-dd',
+    'value-format': 'yyyy-MM-dd',
+    readonly: false
   },
   {
-    label: "评分",
-    tag: "el-rate",
-    tagIcon: 'rate',
-    defaultValue: 0,
-    span: 24,
-    labelWidth: null,
+    __config__: {
+      label: '评分',
+      tag: 'el-rate',
+      tagIcon: 'rate',
+      defaultValue: 0,
+      span: 24,
+      showLabel: true,
+      labelWidth: null,
+      layout: 'colFormItem',
+      required: true,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/rate'
+    },
     style: {},
     max: 5,
     'allow-half': false,
     'show-text': false,
     'show-score': false,
-    disabled: false,
-    required: true,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/rate'
+    disabled: false
   },
   {
-    label: "颜色选择",
-    tag: 'el-color-picker',
-    tagIcon: 'color',
-    defaultValue: null,
+    __config__: {
+      label: '颜色选择',
+      tag: 'el-color-picker',
+      tagIcon: 'color',
+      span: 24,
+      defaultValue: null,
+      showLabel: true,
+      labelWidth: null,
+      layout: 'colFormItem',
+      required: true,
+      regList: [],
+      changeTag: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/color-picker'
+    },
     'show-alpha': false,
     'color-format': '',
     disabled: false,
-    required: true,
-    size: 'medium',
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/color-picker'
+    size: 'medium'
   },
   {
-    label: "上传",
-    tag: 'el-upload',
-    tagIcon: 'upload',
-    action: "https://jsonplaceholder.typicode.com/posts/",
-    defaultValue: null,
+    __config__: {
+      label: '上传',
+      tag: 'el-upload',
+      tagIcon: 'upload',
+      layout: 'colFormItem',
+      defaultValue: null,
+      showLabel: true,
+      labelWidth: null,
+      required: true,
+      span: 24,
+      showTip: false,
+      buttonText: '点击上传',
+      regList: [],
+      changeTag: true,
+      fileSize: 2,
+      sizeUnit: 'MB',
+      document: 'https://element.eleme.cn/#/zh-CN/component/upload'
+    },
+    __slot__: {
+      'list-type': true
+    },
+    action: 'https://jsonplaceholder.typicode.com/posts/',
     disabled: false,
-    required: true,
     accept: '',
     name: 'file',
     'auto-upload': true,
-    showTip: false,
-    buttonText: '点击上传',
-    fileSize: 2,
-    sizeUnit: 'MB',
     'list-type': 'text',
-    multiple: false,
-    regList: [],
-    document: 'https://element.eleme.cn/#/zh-CN/component/upload'
+    multiple: false
   }
 ]
 
-// 组件rule的触发方式，无触发方式的组件不生成rule
-export let trigger = {
-  'el-input': 'blur',
-  'el-input-number': 'blur',
-  'el-select': 'change',
-  'el-radio-group': 'change',
-  'el-checkbox-group': 'change',
-  'el-cascader': 'change',
-  'el-time-picker': 'change',
-  'el-date-picker': 'change',
-  'el-rate': 'change'
-}
+// 布局型组件 【左面板】
+export const layoutComponents = [
+  {
+    __config__: {
+      layout: 'rowFormItem',
+      tagIcon: 'row',
+      label: '行容器',
+      layoutTree: true,
+      document: 'https://element.eleme.cn/#/zh-CN/component/layout#row-attributes'
+    },
+    type: 'default',
+    justify: 'start',
+    align: 'top'
+  },
+  {
+    __config__: {
+      label: '按钮',
+      showLabel: true,
+      changeTag: true,
+      labelWidth: null,
+      tag: 'el-button',
+      tagIcon: 'button',
+      span: 24,
+      layout: 'colFormItem',
+      document: 'https://element.eleme.cn/#/zh-CN/component/button'
+    },
+    __slot__: {
+      default: '主要按钮'
+    },
+    type: 'primary',
+    icon: 'el-icon-search',
+    round: false,
+    size: 'medium',
+    plain: false,
+    circle: false,
+    disabled: false
+  }
+]

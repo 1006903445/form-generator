@@ -1,15 +1,18 @@
-let styles = {
-  'el-rate': `.el-rate{display: inline-block; vertical-align: text-top;}`,
-  'el-upload': `.el-upload__tip{line-height: 1.2;}`
+const styles = {
+  'el-rate': '.el-rate{display: inline-block; vertical-align: text-top;}',
+  'el-upload': '.el-upload__tip{line-height: 1.2;}'
+}
+
+function addCss(cssList, el) {
+  const css = styles[el.__config__.tag]
+  css && cssList.indexOf(css) === -1 && cssList.push(css)
+  if (el.__config__.children) {
+    el.__config__.children.forEach(el2 => addCss(cssList, el2))
+  }
 }
 
 export function makeUpCss(conf) {
-  let cssList = []
-  conf = JSON.parse(JSON.stringify(conf))
-  conf.fields.forEach(el => {
-    let css = styles[el.tag]
-    css && cssList.push(css)
-  })
-
+  const cssList = []
+  conf.fields.forEach(el => addCss(cssList, el))
   return cssList.join('\n')
 }
